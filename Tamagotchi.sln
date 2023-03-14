@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamagotchi.API", "Tamagotchi.API\Tamagotchi.API.csproj", "{166D5EED-285E-4F81-9040-3D288E8B545C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamagotchi.Data", "Tamagotchi.Data\Tamagotchi.Data.csproj", "{34C9E5E9-9CB4-4A6A-93DA-94F359939DF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamagotchi.DataAccess", "Tamagotchi.DataAccess\Tamagotchi.DataAccess.csproj", "{4C501ADB-A5B9-4918-B5AF-4F424C3C43B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tamagotchi.Tests", "Tamagotchi.Tests\Tamagotchi.Tests.csproj", "{B20058E4-DA4F-4354-8708-7C002036B611}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{166D5EED-285E-4F81-9040-3D288E8B545C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{166D5EED-285E-4F81-9040-3D288E8B545C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{166D5EED-285E-4F81-9040-3D288E8B545C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{166D5EED-285E-4F81-9040-3D288E8B545C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34C9E5E9-9CB4-4A6A-93DA-94F359939DF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34C9E5E9-9CB4-4A6A-93DA-94F359939DF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34C9E5E9-9CB4-4A6A-93DA-94F359939DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34C9E5E9-9CB4-4A6A-93DA-94F359939DF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C501ADB-A5B9-4918-B5AF-4F424C3C43B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C501ADB-A5B9-4918-B5AF-4F424C3C43B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C501ADB-A5B9-4918-B5AF-4F424C3C43B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C501ADB-A5B9-4918-B5AF-4F424C3C43B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B20058E4-DA4F-4354-8708-7C002036B611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B20058E4-DA4F-4354-8708-7C002036B611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B20058E4-DA4F-4354-8708-7C002036B611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B20058E4-DA4F-4354-8708-7C002036B611}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
