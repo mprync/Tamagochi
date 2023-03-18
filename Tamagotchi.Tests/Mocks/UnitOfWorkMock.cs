@@ -2,9 +2,9 @@ using MockQueryable.NSubstitute;
 using Moq;
 using Moq.EntityFrameworkCore;
 using Tamagotchi.Data;
+using Tamagotchi.Data.Models;
 using Tamagotchi.Data.Repositories;
 using Tamagotchi.Data.UnitOfWork;
-using Tamagotchi.Tests.Fakes.Models;
 
 namespace Tamagotchi.Tests.Mocks;
 
@@ -25,15 +25,10 @@ public class UnitOfWorkMock
         var usersRepository = new Mock<UsersRepository>(dbContext.Object);
         var unitOfWork = new Mock<UnitOfWork>(dbContext.Object);
         
-        dbContext.Setup(db => db.Pets).ReturnsDbSet(new PetFaker(1, 1).Generate(10).AsQueryable().BuildMockDbSet());
-        dbContext.Setup(db => db.Foods).ReturnsDbSet(new FoodsFaker(1).Generate(15).AsQueryable().BuildMockDbSet());
-        dbContext.Setup(db => db.Species).ReturnsDbSet(new SpeciesFaker().Generate(3).AsQueryable().BuildMockDbSet());
-        dbContext.Setup(db => db.Users).ReturnsDbSet(new UserFaker().Generate(2).AsQueryable().BuildMockDbSet());
-
-        petsRepository.Setup(r => r.GetManyQueryable()).ReturnsDbSet(dbContext.Object.Pets);
-        foodsRepository.Setup(r => r.GetManyQueryable()).ReturnsDbSet(dbContext.Object.Foods);
-        speciesRepository.Setup(r => r.GetManyQueryable()).ReturnsDbSet(dbContext.Object.Species);
-        usersRepository.Setup(r => r.GetManyQueryable()).ReturnsDbSet(dbContext.Object.Users);
+        dbContext.Setup(db => db.Pets).ReturnsDbSet(new List<Pet>().AsQueryable().BuildMockDbSet());
+        dbContext.Setup(db => db.Foods).ReturnsDbSet(new List<Food>().AsQueryable().BuildMockDbSet());
+        dbContext.Setup(db => db.Species).ReturnsDbSet(new List<Species>().AsQueryable().BuildMockDbSet());
+        dbContext.Setup(db => db.Users).ReturnsDbSet(new List<User>().AsQueryable().BuildMockDbSet());
 
         unitOfWork.Setup(p => p.Pets).Returns(petsRepository.Object);
         unitOfWork.Setup(p => p.Foods).Returns(foodsRepository.Object);
@@ -47,11 +42,5 @@ public class UnitOfWorkMock
         FoodsRepository = foodsRepository;
         SpeciesRepository = speciesRepository;
         UsersRepository = usersRepository;
-        
-        // Lets calculate the stats for the pets above, this will set the expected values to match the tests
-        foreach (var pet in dbContext.Object.Pets.ToList())
-        {
-            pet.CalculateStats();
-        }
     }
 }
