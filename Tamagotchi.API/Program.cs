@@ -10,6 +10,8 @@ using Tamagotchi.API.Security;
 using Tamagotchi.API.Services;
 using Tamagotchi.API.Services.Interfaces;
 using Tamagotchi.Data;
+using Tamagotchi.Data.UnitOfWork;
+using Tamagotchi.Data.UnitOfWork.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,10 +63,13 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<TamagotchiDbContext>(options =>
     options.UseNpgsql(connectionString));
 
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddScoped<IFoodsService, FoodService>();
 builder.Services.AddScoped<IPetsService, PetService>();
 builder.Services.AddScoped<ISpeciesService, SpeciesService>();
 builder.Services.AddScoped<IUsersService, UserService>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

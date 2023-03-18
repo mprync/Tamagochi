@@ -65,10 +65,10 @@ public class PetsController : ApiControllerBase
         }
     }
     
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PetDto))]
+    [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(PetDto))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiResponse<ErrorResponse>))]
     [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(ApiResponse<ErrorResponse>))]
-    [HttpPost()]
+    [HttpPost]
     public async Task<HttpActionResult<PetDto>> Create([FromBody] CreatePetDto createPetDto)
     {
         try
@@ -119,7 +119,7 @@ public class PetsController : ApiControllerBase
         }
     }
     
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Response))]
+    [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(Response))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiResponse<ErrorResponse>))]
     [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(ApiResponse<ErrorResponse>))]
     [HttpDelete("Delete")]

@@ -14,7 +14,7 @@ namespace Tamagotchi.API.Actions
         /// <summary>
         /// The result of the response
         /// </summary>
-        private readonly ApiResponse<T>? _result;
+        public ApiResponse<T> Result { get; }
 
         /// <summary>
         /// Constructor
@@ -23,7 +23,7 @@ namespace Tamagotchi.API.Actions
         [JsonConstructor]
         public HttpActionResult(ApiResponse<T> result)
         {
-            _result = result;
+            Result = result;
         }
         
         /// <summary>
@@ -106,11 +106,11 @@ namespace Tamagotchi.API.Actions
         {
             if (result != null && typeof(T) == typeof(ApiResponse<T>))
             {
-                _result = result as ApiResponse<T>;
+                Result = result as ApiResponse<T>;
             }
             else
             {
-                _result = new ApiResponse<T>
+                Result = new ApiResponse<T>
                 {
                     Status = statusCode,
                     Errors = errors,
@@ -126,7 +126,7 @@ namespace Tamagotchi.API.Actions
         /// <returns></returns>
         public async Task ExecuteResultAsync(ActionContext context)
         {
-            if (_result is { Status: StatusCodes.Status204NoContent })
+            if (Result is { Status: StatusCodes.Status204NoContent })
             {
                 var objectResult = new NoContentResult();
                 await objectResult.ExecuteResultAsync(context);
@@ -135,11 +135,11 @@ namespace Tamagotchi.API.Actions
             {
                 var objectResult = new ObjectResult(typeof(T).IsGenericType
                     ? typeof(T).GetGenericTypeDefinition() == typeof(PagedModel<>)
-                        ? _result!.Data
-                        : _result
-                    : _result)
+                        ? Result!.Data
+                        : Result
+                    : Result)
                 {
-                    StatusCode = _result!.Status
+                    StatusCode = Result!.Status
                 };
                 
                 await objectResult.ExecuteResultAsync(context);
