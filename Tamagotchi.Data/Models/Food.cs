@@ -1,11 +1,12 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using Tamagotchi.Data.Models.Interfaces;
 
 namespace Tamagotchi.Data.Models;
 
 /// <summary>
 /// Database model for the Pet table
 /// </summary>
-public class Food
+public class Food : IEntity
 {
     /// <summary>
     /// Primary key

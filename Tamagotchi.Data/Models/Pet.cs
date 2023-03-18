@@ -1,13 +1,14 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Tamagotchi.Data.Enums;
 using Tamagotchi.Data.Extentions;
+using Tamagotchi.Data.Models.Interfaces;
 
 namespace Tamagotchi.Data.Models;
 
 /// <summary>
 /// Database model for the Pet table
 /// </summary>
-public class Pet
+public class Pet : IEntity
 {
     /// <summary>
     /// Primary key

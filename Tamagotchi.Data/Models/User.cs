@@ -1,9 +1,11 @@
+using Tamagotchi.Data.Models.Interfaces;
+
 namespace Tamagotchi.Data.Models;
 
 /// <summary>
 /// Database table for the user table
 /// </summary>
-public class User
+public class User : IEntity
 {
     /// <summary>
     /// Primary key
