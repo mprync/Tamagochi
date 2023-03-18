@@ -29,5 +29,5 @@ public class PagedModel<TModel>
     /// <summary>
     /// The items for the <see cref="CurrentPage"/> of this pagination request
     /// </summary>
-    public IList<TModel> Items { get; set; }
+    public List<TModel> Items { get; set; }
 }
