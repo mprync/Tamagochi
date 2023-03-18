@@ -9,5 +9,5 @@ public interface IUnitOfWork : IDisposable
     IRepository<Pet> Pets { get; }
     IRepository<Species> Species { get; }
     IRepository<User> Users { get; }
-    int Save();
+    Task<int> SaveAsync();
 }

@@ -19,14 +19,14 @@ public class UnitOfWork :IUnitOfWork
         Users = new UsersRepository(context);
     }
     
-    public IRepository<Food> Foods { get; }
-    public IRepository<Pet> Pets { get; }
-    public IRepository<Species> Species { get; }
-    public IRepository<User> Users { get; }
+    public virtual IRepository<Food> Foods { get; }
+    public virtual IRepository<Pet> Pets { get; }
+    public virtual IRepository<Species> Species { get; }
+    public virtual IRepository<User> Users { get; }
 
-    public int Save()
+    public virtual async Task<int> SaveAsync()
     {
-        return _context.SaveChanges();
+        return await _context.SaveChangesAsync();
     }
     
     public void Dispose()
